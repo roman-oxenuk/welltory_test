@@ -1,6 +1,4 @@
 # coding: utf-8
-import json
-
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from rest_framework.test import APIClient
@@ -23,7 +21,8 @@ class UserdataCheckMixin:
 
     def test_get_filtered(self):
         client = APIClient()
-        response = client.get('/userdata/{0}/'.format(self.model_url),
+        response = client.get(
+            '/userdata/{0}/'.format(self.model_url),
             {
                 'time_start': self.past_time - relativedelta(minutes=5),
                 'time_end': self.now_time + relativedelta(minutes=5)
@@ -33,7 +32,8 @@ class UserdataCheckMixin:
         resp_body = response.json()
         self.assertEqual(len(resp_body), 2)
 
-        response = client.get('/userdata/{0}/'.format(self.model_url),
+        response = client.get(
+            '/userdata/{0}/'.format(self.model_url),
             {
                 'time_start': self.past_time + relativedelta(minutes=5),
                 'time_end': self.now_time + relativedelta(minutes=5)
@@ -44,7 +44,8 @@ class UserdataCheckMixin:
         self.assertEqual(len(resp_body), 1)
         self.assertEqual(resp_body[0]['id'], 2)
 
-        response = client.get('/userdata/{0}/'.format(self.model_url),
+        response = client.get(
+            '/userdata/{0}/'.format(self.model_url),
             {
                 'time_start': self.past_time - relativedelta(minutes=5),
                 'time_end': self.now_time - relativedelta(minutes=5)
@@ -55,7 +56,8 @@ class UserdataCheckMixin:
         self.assertEqual(len(resp_body), 1)
         self.assertEqual(resp_body[0]['id'], 1)
 
-        response = client.get('/userdata/{0}/'.format(self.model_url),
+        response = client.get(
+            '/userdata/{0}/'.format(self.model_url),
             {
                 'time_start': self.past_time + relativedelta(minutes=5),
                 'time_end': self.now_time - relativedelta(minutes=5)

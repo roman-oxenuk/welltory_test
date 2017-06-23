@@ -1,5 +1,4 @@
 # coding: utf-8
-import json
 from django.contrib.gis.db.models.fields import PointField as ModelPointField
 
 from rest_framework import serializers

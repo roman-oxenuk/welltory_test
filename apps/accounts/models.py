@@ -1,7 +1,5 @@
 # coding: utf-8
 import os
-import json
-from inspect import isclass
 
 from django.utils.crypto import salted_hmac
 from django.conf import settings

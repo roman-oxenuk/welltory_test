@@ -13,8 +13,8 @@ class CommonUserdata(models.Model):
 
 class Sleep(CommonUserdata):
     class Meta:
-        verbose_name='Сон'
-        verbose_name_plural='Сны'
+        verbose_name = 'Сон'
+        verbose_name_plural = 'Сны'
 
     def __str__(self):
         return u'{0} --- {1}'.format(
@@ -25,8 +25,8 @@ class Sleep(CommonUserdata):
 
 class Steps(CommonUserdata):
     class Meta:
-        verbose_name='Шаги'
-        verbose_name_plural='Шаги'
+        verbose_name = 'Шаги'
+        verbose_name_plural = 'Шаги'
 
     def __str__(self):
         return u'{0} --- {1} [{2}]'.format(
@@ -40,8 +40,8 @@ class Steps(CommonUserdata):
 
 class Presence(CommonUserdata):
     class Meta:
-        verbose_name='Гео-данные'
-        verbose_name_plural='Гео-данные'
+        verbose_name = 'Гео-данные'
+        verbose_name_plural = 'Гео-данные'
 
     def __str__(self):
         return u'{0} --- {1} {2}'.format(

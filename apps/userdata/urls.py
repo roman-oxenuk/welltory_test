@@ -1,5 +1,4 @@
 # coding: utf-8
-import json
 from django.conf.urls import url, include
 
 from rest_framework import routers
